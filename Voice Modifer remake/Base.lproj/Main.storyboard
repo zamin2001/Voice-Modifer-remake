@@ -29,6 +29,9 @@
                                 <state key="normal" title="Play">
                                     <color key="titleColor" red="0.1106631168" green="0.65169608160000003" blue="0.2175865183" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="PlayAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zmc-Id-l62"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4D6-Ym-pqk">
                                 <rect key="frame" x="69" y="338" width="259" height="122"/>
@@ -48,6 +51,9 @@
                                 <state key="normal" title="Record">
                                     <color key="titleColor" red="1" green="0.12734011270000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="RecordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eM4-5G-71o"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJf-TT-Hh0">
                                 <rect key="frame" x="22" y="598" width="322" height="120"/>

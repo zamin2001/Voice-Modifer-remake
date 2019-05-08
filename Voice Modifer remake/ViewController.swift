@@ -24,7 +24,40 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, AVAudioRecorderDel
     @IBOutlet weak var RecordButton: UIButton!
     
     @IBAction func StopAudio(_ sender: UIButton) {
+        StopButton.isEnabled = false
+        PlayButton.isEnabled = true
+        RecordButton.isEnabled = true
+        if AudioRecorder?.isRecording == true {
+            AudioRecorder?.stop()
+        } else {
+            AudioRecorder?.stop()
+        }
     }
+    
+    @IBAction func RecordAudio(_ sender: UIButton) {
+        if AudioRecorder?.isRecording == false {
+            PlayButton.isEnabled = false
+            StopButton.isEnabled = true
+            AudioRecorder?.record()
+        }
+    }
+
+    @IBAction func PlayAudio(_ sender: UIButton) {
+        if AudioRecorder?.isRecording == false {
+            StopButton.isEnabled = true
+            RecordButton.isEnabled = false
+            
+            do {
+                
+                
+            } catch let error as NSError {
+                print("audioPlayer error: \(error.localizedDescription)")
+            }
+        }
+
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         PlayButton.isEnabled = false
