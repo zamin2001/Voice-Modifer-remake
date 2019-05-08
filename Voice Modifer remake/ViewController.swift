@@ -15,8 +15,6 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, AVAudioRecorderDel
     var AudioPlayer:AVAudioPlayer?
     
     let filename = "sound.caf"
-    
-    
     @IBOutlet weak var StopButton: UIButton!
     
     @IBOutlet weak var PlayButton: UIButton!
@@ -27,6 +25,7 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, AVAudioRecorderDel
         StopButton.isEnabled = false
         PlayButton.isEnabled = true
         RecordButton.isEnabled = true
+        
         if AudioRecorder?.isRecording == true {
             AudioRecorder?.stop()
         } else {
@@ -48,8 +47,10 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, AVAudioRecorderDel
             RecordButton.isEnabled = false
             
             do {
-                
-                
+            try AudioPlayer = AVAudioPlayer(contentsOf:(AudioRecorder?.url)!)
+                AudioPlayer!.delegate = self
+                AudioPlayer!.prepareToPlay()
+                AudioPlayer!.play()
             } catch let error as NSError {
                 print("audioPlayer error: \(error.localizedDescription)")
             }
