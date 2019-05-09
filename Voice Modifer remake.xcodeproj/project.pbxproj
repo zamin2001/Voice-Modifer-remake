@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		452F489122834A18005542D2 /* AccentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452F489022834A18005542D2 /* AccentsViewController.swift */; };
 		45B31E312281EBC700224390 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B31E302281EBC700224390 /* AppDelegate.swift */; };
 		45B31E332281EBC700224390 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B31E322281EBC700224390 /* ViewController.swift */; };
 		45B31E362281EBC700224390 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45B31E342281EBC700224390 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		452F489022834A18005542D2 /* AccentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentsViewController.swift; sourceTree = "<group>"; };
 		45B31E2D2281EBC700224390 /* Voice Modifer remake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Voice Modifer remake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B31E302281EBC700224390 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45B31E322281EBC700224390 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				45B31E302281EBC700224390 /* AppDelegate.swift */,
 				45B31E322281EBC700224390 /* ViewController.swift */,
 				45B31E342281EBC700224390 /* Main.storyboard */,
+				452F489022834A18005542D2 /* AccentsViewController.swift */,
 				45B31E372281EBCC00224390 /* Assets.xcassets */,
 				45B31E392281EBCC00224390 /* LaunchScreen.storyboard */,
 				45B31E3C2281EBCC00224390 /* Info.plist */,
@@ -136,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45B31E332281EBC700224390 /* ViewController.swift in Sources */,
+				452F489122834A18005542D2 /* AccentsViewController.swift in Sources */,
 				45B31E312281EBC700224390 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
