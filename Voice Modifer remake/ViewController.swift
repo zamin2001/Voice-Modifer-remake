@@ -22,6 +22,8 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, AVAudioRecorderDel
     
     @IBOutlet weak var RecordButton: UIButton!
     
+    
+    ///This action is connected to our stop button on the first view controller. It disables the other buttons,play and Record Button, since a recording has already occured. Additionally, it notifies the user via alert view that there recording has been successful
     @IBAction func StopAudio(_ sender: UIButton) {
         StopButton.isEnabled = false
         PlayButton.isEnabled = true
@@ -35,7 +37,7 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, AVAudioRecorderDel
         displayDoneMessage(message: "Done")
        
     }
-    
+
     @IBAction func RecordAudio(_ sender: UIButton) {
         if AudioRecorder?.isRecording == false {
             PlayButton.isEnabled = false
@@ -44,6 +46,7 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, AVAudioRecorderDel
         }
     }
     
+    ///When we play the audio we disable the recod button if the audio recorder is not recording. Then we create the audio recording as a Url using the do try statement and prepare it for playing. Finally we have a catch statment in case the audio doesn't play back
     @IBAction func PlayAudio(_ sender: UIButton) {
         if AudioRecorder?.isRecording == false {
             StopButton.isEnabled = true
@@ -61,6 +64,7 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, AVAudioRecorderDel
         
     }
     
+    ///In the viewdidLoad we disable the Playbutton and StopButton as well as create  the url file for our recording as well as designate where those files will be stored and where the audio recording settings will be/
     override func viewDidLoad() {
         super.viewDidLoad()
         PlayButton.isEnabled = false
@@ -100,11 +104,12 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, AVAudioRecorderDel
         }
     }
     
+    //This function returns if the audioplayer has finished playing
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         RecordButton.isEnabled = true
         StopButton.isEnabled = false
     }
-    
+ 
     func audioPlayerErrorOccured(_ player: AVAudioPlayer, error: Error?){
         print("Audio Play Decode Error")
     }
@@ -120,6 +125,7 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, AVAudioRecorderDel
         print("Audio Record Encode Error")
     }
     
+    //This method creates structures for our  UI alert view.
     func displayDoneMessage(message:String) {
         let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
         let alertAction = UIAlertAction(title:"Recording complete", style:.default) { (action) in
