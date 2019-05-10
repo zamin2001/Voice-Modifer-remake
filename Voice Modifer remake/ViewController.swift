@@ -15,6 +15,7 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, AVAudioRecorderDel
     var AudioPlayer:AVAudioPlayer?
     
     let filename = "sound.caf"
+    
     @IBOutlet weak var StopButton: UIButton!
     
     @IBOutlet weak var PlayButton: UIButton!
@@ -31,6 +32,8 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, AVAudioRecorderDel
         } else {
             AudioRecorder?.stop()
         }
+        displayDoneMessage(message: "Done")
+       
     }
     
     @IBAction func RecordAudio(_ sender: UIButton) {
@@ -40,14 +43,14 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, AVAudioRecorderDel
             AudioRecorder?.record()
         }
     }
-
+    
     @IBAction func PlayAudio(_ sender: UIButton) {
         if AudioRecorder?.isRecording == false {
             StopButton.isEnabled = true
             RecordButton.isEnabled = false
             
             do {
-            try AudioPlayer = AVAudioPlayer(contentsOf:(AudioRecorder?.url)!)
+                try AudioPlayer = AVAudioPlayer(contentsOf:(AudioRecorder?.url)!)
                 AudioPlayer!.delegate = self
                 AudioPlayer!.prepareToPlay()
                 AudioPlayer!.play()
@@ -55,10 +58,8 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, AVAudioRecorderDel
                 print("audioPlayer error: \(error.localizedDescription)")
             }
         }
-
+        
     }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +87,7 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, AVAudioRecorderDel
         }
         catch let error as NSError {
             print("audioSession error: \(error.localizedDescription)")
-        }
+     }
         
         //This second try statment tests the audio recorder with the recording session that we have created earlier if it fails we catch the error
         do {
@@ -97,8 +98,8 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, AVAudioRecorderDel
             print("audioSession error: \(error.localizedDescription)")
             
         }
-  }
-   
+    }
+    
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         RecordButton.isEnabled = true
         StopButton.isEnabled = false
@@ -119,8 +120,15 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, AVAudioRecorderDel
         print("Audio Record Encode Error")
     }
     
-    
-  }
+    func displayDoneMessage(message:String) {
+        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title:"Recording complete", style:.default) { (action) in
+        }
+        alert.addAction(alertAction)
+        present(alert,animated:true,completion: nil)
+        
+    }
+}
 
 
 
