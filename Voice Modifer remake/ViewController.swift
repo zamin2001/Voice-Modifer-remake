@@ -34,7 +34,7 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, AVAudioRecorderDel
         } else {
             AudioRecorder?.stop()
         }
-        displayDoneMessage(message: "Done")
+        displayDoneMessage(message: "Recording Complete")
        
     }
 
@@ -128,7 +128,7 @@ class ViewController: UIViewController,AVAudioPlayerDelegate, AVAudioRecorderDel
     //This method creates structures for our  UI alert view.
     func displayDoneMessage(message:String) {
         let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title:"Recording complete", style:.default) { (action) in
+        let alertAction = UIAlertAction(title:"Done", style:.default) { (action) in
         }
         alert.addAction(alertAction)
         present(alert,animated:true,completion: nil)
